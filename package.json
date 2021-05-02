@@ -1,0 +1,26 @@
+{
+  "name": "aem-angularjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppeou/aem-angularjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppeou/aem-angularjs/issues"
+  },
+  "homepage": "https://github.com/ppeou/aem-angularjs#readme",
+  "dependencies": {
+    "redux": "^4.1.0",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.17"
+  }
+}
