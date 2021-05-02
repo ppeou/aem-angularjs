@@ -1,0 +1,8 @@
+<nav class="nav nav-top" ng-controller="topNavigationCtrl as ctrl">
+    <ul>
+        <li ng-repeat='link in ctrl.links'><a ng-href="{{link.href}}">{{link.label}}</a></li>
+    </ul>
+    <p>username: {{ctrl.username}}</p>
+
+    <button ng-click="ctrl.unsubscribe($event)">Unsubscribe</button>
+</nav>

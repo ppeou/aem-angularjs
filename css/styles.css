@@ -1,0 +1,10 @@
+.nav {}
+.nav.nav-top ul{
+    display: flex;
+    list-style: none;
+    border-bottom: solid 1px #500000;
+}
+.nav.nav-top ul li {
+    margin: 4px;
+}
+

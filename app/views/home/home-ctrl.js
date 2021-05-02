@@ -6,6 +6,6 @@
 //homeCtrl.$inject = ['$sce'];
   function homeCtrl(/*$sce*/) {
     var ctrl = this;
-    ctrl.name = 'World';
+    ctrl.name = 'Piseth';
   }
 })(window);

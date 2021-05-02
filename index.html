@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html lang='en-US' ng-app='@myapp'>
-<script src='js/angular.min.js'></script>
-<script src='js/angular-route.min.js'></script>
+<html lang='en-US' ng-app="@myapp">
+<link rel='stylesheet' href='css/styles.css'>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/log4js.js"></script>
 
-<script type='text/javascript'>
+<script type="text/javascript">
   window.moduleId = '@myapp';
 </script>
 <body>
-
+<ng-include src="'app/views/navigation/top-navigation.html'"></ng-include>
 <ng-view></ng-view>
 
-<script src='app/config/module/route-config.js'></script>
-<script src='app/config/module/module-config.js'></script>
-<script src='app/config/run/module-run.js'></script>
-<script src='app/app.js'></script>
-<script src='app/views/home/home-ctrl.js'></script>
-<script src='app/views/account/account-ctrl.js'></script>
+<!--#region Redux -->
+<script src='node_modules/redux/dist/redux.min.js'></script>
+<script src='node_modules/reselect/dist/reselect.min.js'></script>
+
+<script src='store/account/selector.js'></script>
+<script src='store/account/types.js'></script>
+
+<script src='store/account/reducer.js'></script>
+
+<script src='store/index.js'></script>
+
+<script src='store/account/action.js'></script>
+<!--#endregion -->
+
+
+<script src="app/config/module/route-config.js"></script>
+<script src="app/config/module/module-config.js"></script>
+<script src="app/config/run/module-run.js"></script>
+<script src="app/app.js"></script>
+<script src="app/views/navigation/top-navigation-ctrl.js"></script>
+<script src="app/views/home/home-ctrl.js"></script>
+<script src="app/views/account/account-ctrl.js"></script>
 </body>
 </html>
