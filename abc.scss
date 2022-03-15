@@ -1,0 +1,224 @@
+@use '../../../styles/main.scss' as main;
+@use '../../Footer/styles/colors' as clr;
+@use '../../Footer/styles/screen-size' as ss;
+@use '../../Footer/styles/helper' as helper;
+
+$circleSize: 155px;
+$halfCircleSize: 77.5px;
+
+.your-customer-scores-section {
+    & > .title {
+      color: clr.$xBlackClr;
+      font-size: 20px;
+      letter-spacing: 1.6px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  .card-area {
+    margin-top: 34px;
+    padding-bottom: 80px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    column-gap: 30px;
+
+    .score-card {
+      flex: 1;
+      position: relative;
+      height: 216px;
+
+      .score-card-bg {
+        position: absolute;
+        top: 22px;
+        left: 50%;
+        margin-left: -77.5px;
+      }
+
+      .score-card-footer {
+        width: 100%;
+        height: calc(50% + 8px);
+        position: absolute;
+        bottom: 0;
+      }
+
+      .score-card-content {
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 65.5px;
+
+        .score {
+          font-size: 40px;
+          font-weight: bold;
+          line-height: 1;
+        }
+
+        .title {
+          margin-top: 25px;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 1;
+          letter-spacing: 2px;
+          text-align: center;
+          padding: 0 8px;
+          img {
+            margin-left: 4px;
+            margin-top: -4px;
+          }
+        }
+
+        .sub-title {
+          margin-top: 12px;
+          font-size: 13px;
+          letter-spacing: 1.04px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .half-circle-gauge {
+    position: relative;
+
+    .half-circle-gauge-track,
+    .half-circle-gauge-progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $circleSize;
+      height: $circleSize;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 10px solid transparent;
+    }
+
+    .half-circle-gauge-progress-bar {
+      transform: rotate(-45deg); /* 0% = -45dge | 50%: 45deg | 100%: 135deg */
+      transition: 0.5s;
+    }
+  }
+}
+
+@media (min-width: ss.$layout-breakpoint-desktop) {
+  .your-customer-scores-section {
+    margin: 76px 103px 80px;
+    .card-area {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 30px;
+      .score-card {
+        flex: 0 0 calc(33.33% - 20px);
+      }
+      &.is-4-cards {
+        .score-card {
+          flex: 0 0 calc(25% - 22.5px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: ss.$layout-breakpoint-desktop) {
+  .your-customer-scores-section {
+    margin: 84px 16px 80px;
+    .card-area {
+      margin-top: 34px;
+      flex-direction: column;
+
+      .score-card {
+        height: 196px;
+        min-height: 196px;
+
+        .score-card-footer {
+          height: 50%;
+        }
+
+        .score-card-content {
+          top: 67.5px;
+
+          .score {
+            font-size: 30px;
+            letter-spacing: 3px;
+          }
+
+          .title {
+            margin-top: 25px;
+            font-size: 14px;
+            letter-spacing: 1.4px;
+          }
+          .sub-title {
+            margin-top: 10px;
+          }
+        }
+
+        &.no-gauge {
+          .score-card-content {
+            top: 50.5px;
+          }
+        }
+      }
+
+      .score-card + .score-card {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+
+/* theme */
+.your-customer-scores-section {
+  .card-area {
+    border-bottom-color: #00000033;
+    .score-card {
+      color: clr.$x101010Clr;
+      background-color: clr.$xf5f5f5Clr;
+      .score-card-footer {
+        background-color: clr.$xf5f5f5Clr;
+      }
+    }
+  }
+
+  .half-circle-gauge {
+    .half-circle-gauge-track {
+      border-color: clr.$xd5d5d5Clr;
+    }
+
+    &.is-green {
+      .half-circle-gauge-progress-bar {
+        border-color: transparent transparent clr.$x627967Clr clr.$x627967Clr;
+      }
+    }
+
+    &.is-teal {
+      .half-circle-gauge-progress-bar {
+        border-color: transparent transparent clr.$x499b8dClr clr.$x499b8dClr;
+      }
+    }
+
+    &.is-grey {
+      .half-circle-gauge-track,
+      .half-circle-gauge-progress-bar {
+        border-color: clr.$xf5f5f5Clr clr.$xf5f5f5Clr clr.$xf5f5f5Clr clr.$xf5f5f5Clr;
+      }
+    }
+
+    &.is-yellow {
+      .half-circle-gauge-progress-bar {
+        border-width: 11px;
+        border-color: transparent transparent clr.$xc7a341Clr clr.$xc7a341Clr;
+      }
+    }
+
+    &.is-red {
+      .half-circle-gauge-progress-bar {
+        border-width: 11px;
+        border-color: transparent transparent clr.$x8e1c2dClr clr.$x8e1c2dClr;
+      }
+    }
+  }
+}
